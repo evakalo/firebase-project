@@ -1,0 +1,121 @@
+.flex-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #333d51;
+  width: 100%;
+  height: 100vh;
+}
+.flex-container h2 {
+  color: #f4f3ea;
+}
+.bookForm {
+  background-color: #d3ac2b;
+  padding: 40px;
+  color: #f4f3ea;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  gap: 20px;
+  border-radius: 7px;
+  font-size: 20px;
+}
+.bookForm input {
+  border-radius: 7px;
+  padding: 10px;
+  width: 90%;
+  background-color: #f4f3ea;
+}
+.bookForm button {
+  margin: 10px 0px;
+  width: 94%;
+  font-size: 16px;
+  color: #f4f3ea;
+  background-color: #e74c3c;
+  border-radius: 7px;
+  border: none;
+  padding: 10px;
+}
+.bookForm button:hover {
+  cursor: pointer;
+}
+.book-list {
+  background-color: #f4f3ea;
+  width: 45%;
+  margin: 20px;
+  border-radius: 7px;
+  color: #333d51;
+}
+
+.book-list li {
+  list-style-type: none;
+}
+.book-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.book-link button {
+  width: 10%;
+  padding: 10px;
+  background-color: #e74c3c;
+  color: #f4f3ea;
+  border: none;
+  font-size: 16px;
+  border-radius: 7px;
+}
+
+@media (max-width: 400px) {
+  .bookForm {
+    width: 70%;
+    gap: 10px;
+    padding: 25px;
+  }
+  .bookForm input {
+    border-radius: 7px;
+    padding: 10px;
+    width: 90%;
+    background-color: #f4f3ea;
+  }
+  .bookForm button {
+    width: 100%;
+  }
+  .bookForm button:hover {
+    cursor: pointer;
+  }
+  .book-list {
+    background-color: #f4f3ea;
+    width: 80%;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    padding: 10px;
+  }
+  .book-list ul {
+    margin: 0;
+    padding: 0px;
+  }
+
+  .book-link {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+  }
+  .book-link li {
+    width: 100%;
+    text-align: center;
+  }
+  .book-link button {
+    width: 30%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #f4f3ea;
+    border: none;
+    font-size: 16px;
+    border-radius: 7px;
+  }
+}
