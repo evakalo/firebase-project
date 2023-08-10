@@ -60,10 +60,10 @@ const BookList = () => {
     console.log(books);
     setBooks(newData);
   };
-
   useEffect(() => {
     // Show books when the component initially mounts
     showBooks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="flex-container">
