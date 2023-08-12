@@ -155,4 +155,13 @@
     font-size: 16px;
     border-radius: 7px;
   }
+
+  .bookSearch {
+    width: 70%;
+    gap: 20px;
+    padding: 25px;
+  }
+  .bookSearch label {
+    font-size: 16px;
+  }
 }
