@@ -8,6 +8,8 @@ import {
   getDocs,
   where,
   query,
+  serverTimestamp,
+  orderBy,
 } from "firebase/firestore";
 import { db } from "./firebase.config";
 
@@ -17,6 +19,7 @@ const BookList = () => {
   const [price, setPrice] = useState("");
   const [search, setSearch] = useState("");
   const [books, setBooks] = useState([]);
+
   //collection ref - odnosi se na books collection
   const collectionRef = collection(db, "books");
 
@@ -45,13 +48,13 @@ const BookList = () => {
         title: title,
         author: author,
         price: price,
-        date: Date.now(),
+        createdAt: serverTimestamp(),
       });
       console.log("Adding book with id :", bookRef.id);
       //call the function to update the list on the page
       showBooks();
     } catch (e) {
-      // console.error("Error adding document: ", e);
+      console.error("Error adding document: ", e);
     }
   };
   const deleteBook = async (e) => {
@@ -78,9 +81,14 @@ const BookList = () => {
       ...doc.data(),
       id: doc.id,
     }));
-    console.log(newData);
+    //sorts the newest on the top
+    const sortedData = newData.sort((a, b) => {
+      const dateA = a.createdAt.toDate().getTime();
+      const dateB = b.createdAt.toDate().getTime();
+      return dateB - dateA;
+    });
 
-    setBooks(newData);
+    setBooks(sortedData);
   };
   useEffect(() => {
     // Show books when the component initially mounts
@@ -88,11 +96,15 @@ const BookList = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  //search list by author and sort the books alphabetically
   const searchByAuthor = async (e) => {
     e.preventDefault();
 
-    const q = query(collectionRef, where("author", "==", search));
+    const q = query(
+      collectionRef,
+      where("author", "==", search),
+      orderBy("title", "asc")
+    );
     const querySnapshot = await getDocs(q);
     const newData = querySnapshot.docs.map((doc) => ({
       ...doc.data(),
@@ -143,7 +155,7 @@ const BookList = () => {
             ))}
           </ul>
         ) : (
-          <p>No books available.</p>
+          <p style={{ padding: "10px" }}>No books available.</p>
         )}{" "}
       </div>
     </div>
