@@ -33,7 +33,7 @@
   width: 100%;
   font-size: 16px;
   color: #f4f3ea;
-  background-color: #e74c3c;
+  background-color: #333d51;
   border-radius: 7px;
   border: none;
   padding: 10px;
@@ -73,28 +73,59 @@
 
   cursor: pointer;
 }
-.bookForm input:last-of-type {
-  width: 100%;
+.updateForm {
+  display: flex;
+  width: 60%;
+  background-color: #e74c3c;
+  padding: 20px 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  color: #f4f3ea;
+  gap: 5px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.updateForm button {
+  padding: 10px;
+  background-color: #333d51;
+  color: #f4f3ea;
+  border: none;
+  border-radius: 7px;
 }
 .book-list {
   background-color: #f4f3ea;
-  width: 45%;
+  width: 50%;
   margin: 20px;
   border-radius: 7px;
   color: #333d51;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
+.book-list ul {
+  width: 100%;
+}
 .book-list li {
   list-style-type: none;
 }
 .book-link {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 10px;
+  width: 80%;
+}
+.book-link li {
+  width: 50%;
+}
+.book-link div {
+  width: 20%;
+  display: flex;
+  gap: 20px;
 }
 .book-link button {
-  width: 10%;
+  width: 20%;
   padding: 10px;
   background-color: #e74c3c;
   color: #f4f3ea;
@@ -103,9 +134,13 @@
   border-radius: 7px;
 }
 
-@media (max-width: 480px) {
+.book-link button:first-of-type {
+  background-color: #333d51;
+}
+
+@media (max-width: 750px) {
   .bookForm {
-    width: 70%;
+    width: 50%;
     gap: 10px;
     padding: 25px;
   }
@@ -123,41 +158,40 @@
   }
   .book-list {
     background-color: #f4f3ea;
-    width: 80%;
+    width: 60%;
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
-  }
-  .book-list ul {
-    margin: 0;
-    padding: 0px;
   }
 
   .book-link {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 5px;
     gap: 10px;
+  }
+
+  .book-link div {
+    width: 50%;
+    display: flex;
+    gap: 20px;
   }
   .book-link li {
     width: 100%;
     text-align: center;
   }
   .book-link button {
-    width: 30%;
+    width: 100%;
     padding: 10px;
-    background-color: #e74c3c;
-    color: #f4f3ea;
-    border: none;
-    font-size: 16px;
-    border-radius: 7px;
   }
 
   .bookSearch {
-    width: 70%;
+    width: 50%;
     gap: 20px;
     padding: 25px;
   }
